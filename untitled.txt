@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IA Generativa</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+    }
+
+    header, footer {
+      background: #343a40;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 1rem;
+      background: white;
+    }
+
+    h1, h2 {
+      color: #007bff;
+    }
+
+    img, iframe, canvas {
+      max-width: 100%;
+      height: auto;
+    }
+
+    form {
+      background: #e9ecef;
+      padding: 1rem;
+      border-radius: 5px;
+    }
+
+    input, button {
+      display: block;
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 24px; }
+      h2 { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Inteligencia Artificial Generativa</h1>
+  </header>
+
+  <div class="container">
+    <section>
+      <h2>¿Qué es la IA Generativa?</h2>
+      <p>La IA generativa permite crear contenido como imágenes, texto, música o código. Usa modelos como ChatGPT o DALL·E.</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Artificial_Intelligence_%26_AI_%26_Machine_Learning_-_30212411048.jpg/640px-Artificial_Intelligence_%26_AI_%26_Machine_Learning_-_30212411048.jpg" alt="IA Generativa">
+    </section>
+
+    <section>
+      <h2>Video explicativo</h2>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/sDqnYq-nAlI" frameborder="0" allowfullscreen></iframe>
+    </section>
+
+    <section>
+      <h2>Suscríbete para recibir noticias</h2>
+      <form action="https://formspree.io/f/tu_codigo" method="POST">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" required>
+
+        <label for="email">Correo electrónico:</label>
+        <input type="email" name="email" required>
+
+        <button type="submit">Suscribirme</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Juega: Atrapa el Cuadro Azul</h2>
+      <canvas id="juego" width="300" height="300" style="border:1px solid #000"></canvas>
+      <script>
+        const canvas = document.getElementById("juego");
+        const ctx = canvas.getContext("2d");
+        let x = Math.random() * 270;
+        let y = Math.random() * 270;
+
+        function dibujarCuadro() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.fillStyle = "blue";
+          ctx.fillRect(x, y, 30, 30);
+        }
+
+        canvas.addEventListener("click", function(e) {
+          const rect = canvas.getBoundingClientRect();
+          const clickX = e.clientX - rect.left;
+          const clickY = e.clientY - rect.top;
+
+          if (clickX >= x && clickX <= x + 30 && clickY >= y && clickY <= y + 30) {
+            x = Math.random() * 270;
+            y = Math.random() * 270;
+            dibujarCuadro();
+            alert("¡Lo atrapaste!");
+          }
+        });
+
+        dibujarCuadro();
+      </script>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 - IA Generativa Educativa</p>
+  </footer>
+
+</body>
+</html>
